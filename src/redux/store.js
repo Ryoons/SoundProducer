@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { curryGetDefaultMiddleware } from '@reduxjs/toolkit/dist/getDefaultMiddleware';
 
-import playerReducer from './features/playerSlice';
 import { shazamCoreApi } from './services/shazamCore';
+import playerReducer from './features/playerSlice';
+
 
 export const store = configureStore({
   reducer: {
     [shazamCoreApi.reducerPath]: shazamCoreApi.reducer,
     player: playerReducer,
   },
-  middleware: (curryGetDefaultMiddleware) => getDefaultMiddleware().concat(shazamCoreApi.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shazamCoreApi.middleware),
 });
