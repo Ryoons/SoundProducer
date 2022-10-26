@@ -1,19 +1,13 @@
-
-import axios from "axios";
 import { useSelector } from "react-redux";
 import { Error, Loader, SongCard } from "../components";
 import { useGetTopChartsQuery } from "../redux/services/shazamCore";
-
-// api_key: at_RQNsaQhQloede2EgY59US3oICdfvm
 
 const TopCharts = () => {
 
     const {activeSong, isPlaying} = useSelector((state) => state.player);
     const { data, isFetching, error } = useGetTopChartsQuery();
 
- 
     if (isFetching) return <Loader title='Loading Top Charts'/>;
-
     if (error) return <Error />
 
   return (
