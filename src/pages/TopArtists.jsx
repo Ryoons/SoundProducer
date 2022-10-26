@@ -24,4 +24,4 @@ const TopArtists = () => {
   );
 };
 
-export default TopCharts;
+export default TopArtists;
